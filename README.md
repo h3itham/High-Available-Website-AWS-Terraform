@@ -2,7 +2,7 @@
 
   
 
-   Designing of highly available, scalable, manageable and secure web application on Amazon Web Services (AWS) Cloud With Terraform which  is an Infrastructure as Code (IaC) tool that enables automatic deployment and further management of projects architecture. in this project I set up a dynamic AWS Autoscaling Group and Load Balancer with Autoscaling Scaling Policy Resource and a Dynamic Scaling Policy to distribute traffic to  instances in several Availability Zones, The Following photo represent simple infrastructure or project overall picture 
+   Designing of highly available, scalable, manageable and secure web application on Amazon Web Services (AWS) Cloud With Terraform which  is an Infrastructure as Code (IaC) tool that enables automatic deployment and further management of projects architecture. in this project I set up a dynamic AWS Autoscaling Group and Load Balancer with Autoscaling Scaling Policy Resource and a Dynamic Scaling Policy to distribute traffic to  instances in several Availability Zones, The Following image represent simple infrastructure or project overall picture 
 
 ![Project Photo](./Project.png)
 
