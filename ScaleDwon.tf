@@ -1,9 +1,9 @@
-resource "aws_autoscaling_policy" "web_policy_down" {
-  name = "web_policy_down"
+resource "aws_autoscaling_policy" "Cluster-Scaldown" {
+  name = "Cluster-Scaldown"
   scaling_adjustment = -1
   adjustment_type = "ChangeInCapacity"
   cooldown = 300
-  autoscaling_group_name = aws_autoscaling_group.web.name
+  autoscaling_group_name = aws_autoscaling_group.Cluster-ASG.name
 }
 resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_down" {
   alarm_name = "web_cpu_alarm_down"
@@ -15,8 +15,8 @@ resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_down" {
   statistic = "Average"
   threshold = "10"
   dimensions = {
-    AutoScalingGroupName = aws_autoscaling_group.web.name
+    AutoScalingGroupName = aws_autoscaling_group.Cluster-ASG.name
   }
   alarm_description = "This metric monitor EC2 instance CPU utilization"
-  alarm_actions = [ aws_autoscaling_policy.web_policy_down.arn ]
+  alarm_actions = [ aws_autoscaling_policy.Cluster-Scaldown.arn ]
 }

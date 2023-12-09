@@ -1,7 +1,7 @@
-resource "aws_security_group" "elb_http" {
-  name        = "elb_http"
+resource "aws_security_group" "Cluster-ALB-SG" {
+  name        = "Cluster-ALB-SG"
   description = "Allow HTTP traffic to instances through Elastic Load Balancer"
-  vpc_id = aws_vpc.my_vpc.id
+  vpc_id = aws_vpc.Cluster-VPC.id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -15,13 +15,13 @@ resource "aws_security_group" "elb_http" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Allow HTTP through ELB Security Group"
+    Name = "Cluster-ALB-SG"
   }
 }
-resource "aws_elb" "web_elb" {
-  name = "web-elb"
+resource "aws_elb" "Cluster-LB" {
+  name = "Cluster-LB"
   security_groups = [
-    aws_security_group.elb_http.id
+    aws_security_group.Cluster-ALB-SG.id
   ]
   subnets = [
     aws_subnet.public_us_east_1a.id,
@@ -42,3 +42,4 @@ resource "aws_elb" "web_elb" {
     instance_protocol = "http"
   }
 }
+

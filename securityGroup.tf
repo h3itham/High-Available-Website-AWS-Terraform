@@ -1,7 +1,7 @@
-resource "aws_security_group" "allow_http" {
-  name        = "allow_http"
+resource "aws_security_group" "Cluster-server-SG" {
+  name        = "Cluster-server-SG"
   description = "Allow HTTP inbound connections"
-  vpc_id = aws_vpc.my_vpc.id
+  vpc_id = aws_vpc.Cluster-VPC.id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -21,7 +21,7 @@ resource "aws_security_group" "allow_http" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Allow HTTP Security Group"
+    Name = "Cluster-server-SG"
   }
 
 }
